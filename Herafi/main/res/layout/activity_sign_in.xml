@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="SignInBinding"
+            type="com.abdalkarimalbiekdev.herafi.viewModel.SignInViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/root"
+        android:background="?background_layout"
+        tools:context=".SignIn">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:background="?background_layout"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:background="?background_layout"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?background_layout"
+                    android:text="@string/signIn_SignIn"
+                    android:textColor="@color/primary_color"
+                    android:textSize="65sp"
+                    android:gravity="start"
+                    android:layout_margin="20dp"
+                    android:layout_marginTop="30dp"
+                    android:shadowColor="@color/primary_color"
+                    android:shadowDx="0.0"
+                    android:shadowDy="0.0"
+                    android:shadowRadius="26"/>
+
+                <LinearLayout
+                    android:layout_marginTop="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_verify"
+                        android:background="?background_layout"
+                        android:textColor="?text_title"
+                        android:text="@string/signIn_verify"
+                        android:textStyle="normal"
+                        android:textSize="22sp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{(v) -> SignInBinding.onVerifyClicked(v)}"/><!---->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_baseline_check_circle_outline_24"
+                            android:scaleType="centerCrop"
+                            android:layout_centerInParent="true" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signIn_email"
+                    android:text="@{SignInBinding.getSignInViewModel().getEmail()}"
+                    android:textSize="25sp"
+                    android:textAlignment="viewStart"
+                    android:textColor="?text_title"
+                    android:inputType="textEmailAddress"
+                    android:elevation="4dp"
+                    android:textAllCaps="false"
+                    android:singleLine="true"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/design_edit"
+                    android:drawableStart="@drawable/design_signin_page_icon_email"
+                    app:addTextChangedListener= "@{SignInBinding.getEmailTextWatcher()}"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signIn_password"
+                    android:textSize="25sp"
+                    android:text="@{SignInBinding.getSignInViewModel().getPassword()}"
+                    android:textAlignment="viewStart"
+                    android:textColor="?text_title"
+                    android:inputType="textPassword"
+                    android:elevation="4dp"
+                    android:textAllCaps="false"
+                    android:singleLine="true"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/design_edit"
+                    android:drawableStart="@drawable/design_signin_page_icon_password"
+                    app:addTextChangedListener= "@{SignInBinding.getPasswordWatcher()}"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:weightSum="2">
+
+                    <com.rey.material.widget.CheckBox
+                        android:id="@+id/ckbRemember"
+                        style="@style/Material.Drawable.CheckBox"
+                        android:background="?background_layout"
+                        android:textColor="?text_description"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:layout_weight="1"
+                        android:checked="@{SignInBinding.getSignInViewModel().isChecked()}"
+                        android:gravity="center_vertical"
+                        android:text="@string/signIn_rememberMe"
+                        android:textSize="18sp"
+                        app:cbd_strokeColor="@color/primary_color"
+                        app:cbd_tickColor="@color/white" />
+
+
+                    <TextView
+                        android:id="@+id/txtForgetPassword"
+                        android:text="@string/signIn_forgetPassword"
+                        android:background="?background_layout"
+                        android:textColor="?text_description"
+                        android:textSize="18sp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:onClick="@{(v) -> SignInBinding.onForgetPasswordClicked(v)}"/><!---->
+                </LinearLayout>
+
+                <com.sanojpunchihewa.glowbutton.GlowButton
+                    android:id="@+id/btnLogin"
+                    android:text="@string/signIn_login"
+                    android:textColor="@android:color/white"
+                    android:textStyle="normal"
+                    android:textSize="18sp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    app:buttonColor="@color/primary_color"
+                    app:cornerRadius="14dp"
+                    app:glowColor="#0069F1"
+                    app:pressedGlowSize="10dp"
+                    app:unpressedGlowSize="22dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:onClick="@{(v) -> SignInBinding.onLoginClicked(v)}"/><!---->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerInParent="true">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="?background_layout"
+                            android:layout_marginEnd="12dp">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="160dp"
+                                android:background="?background_card_item"
+                                android:layout_height="1dp"
+                                android:layout_centerInParent="true"/>
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?background_layout"
+                            android:textColor="?text_title"
+                            android:text="@string/signIn_or"
+                            android:textSize="14sp"/>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="?background_layout"
+                            android:layout_marginStart="12dp">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="160dp"
+                                android:layout_height="1dp"
+                                android:layout_centerInParent="true"/>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fingerLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="?background_card_item"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginBottom="8dp"
+                    android:onClick="@{(v) -> SignInBinding.onFingerprintClicked(v)}"><!---->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:background="?background_card_item"
+                            android:scaleType="centerCrop"
+                            android:layout_margin="8dp"
+                            android:src="@drawable/ic_signin_fingerprint_48" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/signIn_fingerprint"
+                                android:layout_centerInParent="true"
+                                android:textColor="?text_title"
+                                android:background="?background_card_item"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/facebookLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    app:cardBackgroundColor="?background_card_item"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:onClick="@{(v) -> SignInBinding.onFacebookClicked(v)}"><!---->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:background="?background_card_item"
+                            android:scaleType="centerCrop"
+                            android:layout_margin="8dp"
+                            android:src="@drawable/ic_facebook_icon" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/signIn_facebook"
+                                android:layout_centerInParent="true"
+                                android:textColor="?text_title"
+                                android:background="?background_card_item"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/googleLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    app:cardBackgroundColor="?background_card_item"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:onClick="@{(v) -> SignInBinding.onGoogleClicked(v)}"><!---->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:background="?background_card_item"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:scaleType="centerCrop"
+                            android:layout_margin="8dp"
+                            android:src="@drawable/ic_google_icon" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/signIn_google"
+                                android:layout_centerInParent="true"
+                                android:textColor="?text_title"
+                                android:background="?background_card_item"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/txtNewWorker"
+                    android:text="@string/signIn_newWorker"
+                    android:textSize="20sp"
+                    android:textColor="@color/primary_color"
+                    android:background="?background_layout"
+                    android:textStyle="normal"
+                    android:gravity="center"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v) -> SignInBinding.onSignUpTextClick(v)}"/> <!---->
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+</layout>

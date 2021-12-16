@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="?background_card_item"
+        android:theme="@style/Theme.Herafi.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:backgroundTint="?background_card_item"
+            app:titleTextColor="?text_title"
+            android:elevation="8dp"
+            app:popupTheme="@style/Theme.Herafi.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/nav_host_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBarLayout"
+        android:layout_above="@id/bubble_nav"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+    <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
+        android:id="@+id/bubble_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:elevation="8dp"
+        android:background="?background_card_item"
+        android:orientation="horizontal"
+        android:layoutDirection="ltr"
+        android:padding="12dp"
+        app:bnc_mode="spread">
+
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/request_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@android:color/holo_purple"
+            app:bt_colorInactive="@android:color/holo_purple"
+            android:backgroundTint="#57AA66CC"
+            app:bt_icon="@drawable/ic_unfocused_request_30"
+            app:bt_title="@string/menu_request"
+            app:bt_padding="8dp"
+            app:bt_titlePadding="8dp" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/project_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@android:color/holo_green_light"
+            app:bt_colorInactive="@android:color/holo_green_light"
+            android:backgroundTint="#5499CC00"
+            app:bt_icon="@drawable/ic_unfocused_project_30"
+            app:bt_title="@string/menu_project"
+            app:bt_padding="8dp"
+            app:bt_titlePadding="8dp" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/profile_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@android:color/holo_blue_light"
+            app:bt_colorInactive="@android:color/holo_blue_light"
+            android:backgroundTint="#5433B5E5"
+            app:bt_icon="@drawable/ic_unfocused_profle_30"
+            app:bt_title="@string/menu_Profile"
+            app:bt_padding="8dp"
+            app:bt_titlePadding="8dp" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/authentication_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@android:color/holo_red_light"
+            app:bt_colorInactive="@android:color/holo_red_light"
+            android:backgroundTint="#5BFF4444"
+            app:bt_icon="@drawable/ic_unfouced_key_30"
+            app:bt_title="@string/menu_auth"
+            app:bt_padding="8dp"
+            app:bt_titlePadding="8dp" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/chart_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@android:color/holo_orange_light"
+            app:bt_colorInactive="@android:color/holo_orange_light"
+            android:backgroundTint="#59FFBB33"
+            app:bt_icon="@drawable/ic_unfocused_chart_30"
+            app:bt_title="@string/menu_chart"
+            app:bt_padding="8dp"
+            app:bt_titlePadding="8dp" />
+
+<!--        <com.gauravk.bubblenavigation.BubbleToggleView-->
+<!--            android:id="@+id/about_toggle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:bt_active="true"-->
+<!--            app:bt_colorActive="#B5BBC4"-->
+<!--            app:bt_colorInactive="@android:color/darker_gray"-->
+<!--            app:bt_icon="@drawable/ic_unfocused_about_30"-->
+<!--            app:bt_shape="@android:anim/fade_out"-->
+<!--            app:bt_title="@string/menu_about"-->
+<!--            app:bt_padding="8dp"-->
+<!--            app:bt_titlePadding="8dp" />-->
+
+
+    </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
+
+
+    <!--app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" app:itemTextColor="?text_title" android:layout_gravity="start"
+        android:fitsSystemWindows="true"-->
+
+
+<!--    <include-->
+<!--        layout="@layout/app_bar_main"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_above="@id/bubble_nav"/>-->
+
+</RelativeLayout>

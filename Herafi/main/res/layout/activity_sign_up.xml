@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="SignUpBinding"
+            type="com.abdalkarimalbiekdev.herafi.viewModel.SignUpViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?background_layout"
+        android:id="@+id/root"
+        tools:context=".SignUp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?background_layout"
+                    android:text="@string/signUp_SignUp"
+                    android:textColor="@color/primary_color"
+                    android:textSize="65sp"
+                    android:gravity="start"
+                    android:layout_margin="20dp"
+                    android:layout_marginTop="30dp"
+                    android:shadowColor="@color/primary_color"
+                    android:shadowDx="0.0"
+                    android:shadowDy="0.0"
+                    android:shadowRadius="26"/>
+
+                <TextView
+                    android:id="@+id/txt_verify"
+                    android:text="@string/signUp_under_signUp"
+                    android:textStyle="normal"
+                    android:textSize="20sp"
+                    android:background="?background_layout"
+                    android:textColor="?text_description"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/imgPersom"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:src="@drawable/ic_focused_person_30"
+                            android:scaleType="centerCrop"
+                            android:layout_margin="16dp"
+                            app:civ_fill_color="?background_card_item"
+                            app:civ_border_color="@color/primary_color"
+                            app:civ_border_width="1dp"
+                            app:imgPerson="@{SignUpBinding.getSignUpModel().getImgCraftman()}"/>
+
+                        <info.hoang8f.widget.FButton
+                            android:id="@+id/btnChoosePhoto"
+                            android:text="@string/signUp_btn_Photo_person"
+                            android:textColor="#FFF"
+                            android:textAllCaps="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            app:fButtonColor="@color/primary_color"
+                            app:shadowColor="#C92A7EEA"
+                            app:shadowEnabled="true"
+                            app:shadowHeight="5dp"
+                            app:cornerRadius="5dp"
+                            android:onClick="@{(v) -> SignUpBinding.onClickBtnPhoto(v)}"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signUp_name"
+                    android:textSize="25sp"
+                    android:textAlignment="viewStart"
+                    android:textColor="?text_title"
+                    android:inputType="textPersonName"
+                    android:elevation="8dp"
+                    android:textAllCaps="false"
+                    android:singleLine="true"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/design_edit"
+                    android:drawableStart="@drawable/design_signup_page_icon_person"
+                    app:addTextChangedListener="@{SignUpBinding.getNameChanged}"
+                    android:text="@{SignUpBinding.getSignUpModel().getEdtName}"/>
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signIn_email"
+                    android:textSize="25sp"
+                    android:textAlignment="viewStart"
+                    android:textColor="?text_title"
+                    android:inputType="textEmailAddress"
+                    android:elevation="8dp"
+                    android:textAllCaps="false"
+                    android:singleLine="true"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/design_edit"
+                    android:drawableStart="@drawable/design_signin_page_icon_email"
+                    app:addTextChangedListener="@{SignUpBinding.getEmailChanged}"
+                    android:text="@{SignUpBinding.getSignUpModel().getEdtEmail}" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    android:hint="@string/signIn_password"
+                    android:textSize="25sp"
+                    android:textColor="?text_title"
+                    android:inputType="textPassword"
+                    android:elevation="8dp"
+                    android:textAllCaps="false"
+                    android:singleLine="true"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/design_edit"
+                    android:drawableStart="@drawable/design_signin_page_icon_password"
+                    app:addTextChangedListener="@{SignUpBinding.getPasswordChanged}"
+                    android:text="@{SignUpBinding.getSignUpModel().getEdtPassword}" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signUp_phone"
+                    android:textAlignment="viewStart"
+                    android:textSize="25sp"
+                    android:inputType="phone"
+                    android:elevation="8dp"
+                    android:textAllCaps="false"
+                    android:singleLine="true"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/design_edit"
+                    android:drawableStart="@drawable/design_signup_page_icon_phone"
+                    app:addTextChangedListener="@{SignUpBinding.getPhoneChanged}"
+                    android:text="@{SignUpBinding.getSignUpModel().getEdtPhone}" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtSecureCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signUp_secure_code"
+                    android:textSize="25sp"
+                    android:textAlignment="viewStart"
+                    android:inputType="text"
+                    android:textColor="?text_title"
+                    android:elevation="8dp"
+                    android:textAllCaps="false"
+                    android:singleLine="true"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/design_edit"
+                    android:drawableStart="@drawable/design_signup_page_icon_secure_code"
+                    app:addTextChangedListener="@{SignUpBinding.getSecureChanged}"
+                    android:text="@{SignUpBinding.getSignUpModel().getEdtSecureCode}" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtIdentityNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signUp_identity_number"
+                    android:textAlignment="viewStart"
+                    android:textSize="25sp"
+                    android:textColor="?text_title"
+                    android:inputType="phone"
+                    android:elevation="8dp"
+                    android:textAllCaps="false"
+                    android:singleLine="true"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/design_edit"
+                    android:drawableStart="@drawable/design_sigup_page_icon_identity"
+                    app:addTextChangedListener="@{SignUpBinding.getIdentityChanged}"
+                    android:text="@{SignUpBinding.getSignUpModel().getEdtIdentityNumber}" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signUp_description"
+                    android:textSize="25sp"
+                    android:textColor="?text_title"
+                    android:textAlignment="viewStart"
+                    android:inputType="text"
+                    android:elevation="8dp"
+                    android:textAllCaps="false"
+                    android:singleLine="false"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/design_edit"
+                    android:drawableStart="@drawable/design_signup_page_icon_description"
+                    app:addTextChangedListener="@{SignUpBinding.getDescriptionChanged}"
+                    android:text="@{SignUpBinding.getSignUpModel().getEdtDescription}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:text="@string/signUp_text_city"
+                            android:textSize="26sp"
+                            android:layout_marginTop="8dp"
+                            android:background="?background_layout"
+                            android:textColor="?text_title"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_centerInParent="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </RelativeLayout>
+
+                    <com.jaredrummler.materialspinner.MaterialSpinner
+                        android:id="@+id/spinner_city"
+                        android:hint="@string/signUp_your_city"
+                        android:text="@{SignUpBinding.getSignUpModel().getSpinnerCity().getName}"
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:elevation="8dp"
+                        app:ms_text_color="?text_title"
+                        app:ms_background_color="?background_card_item"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:text="@string/signUp_text_num_queue"
+                    android:textSize="26sp"
+                    android:background="?background_layout"
+                    android:textColor="?text_title"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                    android:id="@+id/size_queue"
+                    android:layout_width="170dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="8dp"
+                    android:elevation="8dp"
+                    app:backGroundColor="@color/primary_color"
+                    app:finalNumber="20"
+                    app:initialNumber="1"
+                    app:textSize="12sp"
+                    app:ElegantNumberButtonChanged='@{"Number Picker TAG"}'/>
+
+
+                <TextView
+                    android:text="@string/signUp_text_select_hand_pair_paid"
+                    android:textSize="26sp"
+                    android:textColor="?text_title"
+                    android:background="?background_layout"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <com.jem.rubberpicker.RubberRangePicker
+                    android:id="@+id/rangeBarPaid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:initialStartValue="1000"
+                    app:initialEndValue="100000"
+                    app:elasticBehavior="cubic"
+                    app:dampingRatio="0.3"
+                    app:stiffness="300"
+                    app:stretchRange="20dp"
+                    app:defaultThumbRadius="16dp"
+                    app:normalTrackWidth="2dp"
+                    app:highlightTrackWidth="4dp"
+                    app:normalTrackColor="?background_card_item"
+                    app:highlightTrackColor="@color/primary_color"
+                    app:defaultThumbInsideColor="?background_card_item"
+                    app:highlightDefaultThumbOnTouchColor="#C92A7EEA"/>
+<!--                    app:setMinHandValue="@{SignUpBinding.getSignUpModel().getNumMinValueHand}"-->
+<!--                    app:setMaxHandValue="@{SignUpBinding.getSignUpModel().getNumMaxValueHand}"-->
+                    <!--app:minValue="@{SignUpBinding.getSignUpModel().getNumMinValueHand}"
+                    app:maxValue="@{SignUpBinding.getSignUpModel().getNumMaxValueHand}"-->
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp">
+
+                    <TextView
+                        android:id="@+id/txtMinRange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{SignUpBinding.getSignUpModel().getTextMinValueHand}"
+                        android:textColor="?text_description"
+                        android:background="?background_layout"
+                        android:textStyle="normal"
+                        android:textSize="18sp" />
+
+
+                    <TextView
+                        android:id="@+id/txtMaxRange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{SignUpBinding.getSignUpModel().getTextMaxValueHand}"
+                        android:textStyle="normal"
+                        android:textSize="18sp"
+                        android:textColor="?text_description"
+                        android:background="?background_layout"
+                        android:layout_alignParentEnd="true" />
+
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:text="@string/signUp_your_exp"
+                    android:textSize="26sp"
+                    android:textColor="?text_title"
+                    android:background="?background_layout"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <info.hoang8f.widget.FButton
+                    android:id="@+id/btnChooseExp"
+                    android:text="@string/signUp_btn_choose_your_exp"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#fff"
+                    app:fButtonColor="@color/primary_color"
+                    app:shadowColor="#C92A7EEA"
+                    app:shadowEnabled="true"
+                    app:shadowHeight="5dp"
+                    app:cornerRadius="5dp"
+                    android:onClick="@{(v) -> SignUpBinding.onClickBtnExp(v)}"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerExperience"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?background_layout"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:setAdapter='@{"Recycler Experiences"}'/>
+
+                <TextView
+                    android:text="@string/signUp_upload_photo"
+                    android:textSize="26sp"
+                    android:textColor="?text_title"
+                    android:background="?background_layout"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="4dp"
+                    android:weightSum="2">
+
+                    <info.hoang8f.widget.FButton
+                        android:id="@+id/btnIdentity"
+                        android:text="@string/signUp_btn_identity"
+                        android:textColor="#FFF"
+                        android:textAllCaps="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp"
+                        app:fButtonColor="@color/primary_color"
+                        app:shadowColor="#C92A7EEA"
+                        app:shadowEnabled="true"
+                        app:shadowHeight="5dp"
+                        app:cornerRadius="5dp"
+                        android:onClick="@{(v) -> SignUpBinding.onClickBtnUploadIdentity(v)}"/>
+
+                    <info.hoang8f.widget.FButton
+                        android:id="@+id/btnCertifications"
+                        android:text="@string/signUp_btn_certifications"
+                        android:textColor="#FFF"
+                        android:textAllCaps="false"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp"
+                        app:fButtonColor="@color/primary_color"
+                        app:shadowColor="#C92A7EEA"
+                        app:shadowEnabled="true"
+                        app:shadowHeight="5dp"
+                        app:cornerRadius="5dp"
+                        android:onClick="@{(v) -> SignUpBinding.onClickBtnUploadCerticate(v)}"/>
+
+
+                </LinearLayout>
+
+<!--                <info.hoang8f.widget.FButton-->
+<!--                    android:id="@+id/btnOtherType"-->
+<!--                    android:text="@string/signUp_btn_other_type"-->
+<!--                    android:textColor="#FFF"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="8dp"-->
+<!--                    app:fButtonColor="@color/primary_color"-->
+<!--                    app:shadowColor="#C92A7EEA"-->
+<!--                    app:shadowEnabled="true"-->
+<!--                    app:shadowHeight="5dp"-->
+<!--                    app:cornerRadius="5dp"-->
+<!--                    android:onClick="@{(v) -> SignUpBinding.onClickBtnUploadOther(v)}"/>-->
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerWorkerPhotos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?background_layout"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:onSetImageCioAdapter='@{"Recycler Photos TAG"}'/>
+
+
+                <LinearLayout
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.rey.material.widget.CheckBox
+                        android:id="@+id/ckbPrivacyTermsAccept"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Material.Drawable.CheckBox"
+                        android:gravity="center_vertical"
+                        android:checked="@{SignUpBinding.getSignUpModel().isCheckedPrivacyConditions}"
+                        app:cbd_strokeColor="@color/primary_color"
+                        app:cbd_tickColor="@color/white" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtPrivacy1"
+                            android:text="@string/signUp_text_privacy1"
+                            android:textSize="18sp"
+                            android:textStyle="italic"
+                            android:textColor="?text_description"
+                            android:background="?background_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/txtPrivacyPolicy"
+                            android:text="@string/privcy_policy"
+                            android:textStyle="italic"
+                            android:background="?background_layout"
+                            android:textColor="@color/primary_color"
+                            android:textSize="18sp"
+                            android:textColorLink="@color/primary_color"
+                            android:linksClickable="true"
+                            android:autoLink="all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{(v) -> SignUpBinding.onClickPrivacyPolicy(v)}"/>
+
+                        <TextView
+                            android:id="@+id/txtConditionsTerms"
+                            android:text="@string/conditions_terms"
+                            android:textStyle="italic"
+                            android:textColorLink="@color/primary_color"
+                            android:background="?background_layout"
+                            android:textColor="@color/primary_color"
+                            android:linksClickable="true"
+                            android:autoLink="all"
+                            android:textSize="18sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{(v) -> SignUpBinding.onClickConditionsTerms(v)}"/>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <com.sanojpunchihewa.glowbutton.GlowButton
+                    android:id="@+id/btnSignUp"
+                    android:text="@string/signUp_btn_signUp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="normal"
+                    android:textSize="18sp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    app:buttonColor="@color/primary_color"
+                    app:cornerRadius="14dp"
+                    app:glowColor="#862B62A8"
+                    app:pressedGlowSize="10dp"
+                    app:unpressedGlowSize="22dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:onClick="@{(v) -> SignUpBinding.onClickBtnRegister(v)}"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+</layout>

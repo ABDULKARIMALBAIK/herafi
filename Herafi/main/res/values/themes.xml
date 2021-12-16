@@ -1,0 +1,62 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Herafi" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_color</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/primary_color</item>
+        <item name="colorSecondaryVariant">@color/primary_color</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+<!--        <item name="android:textColor">@color/black</item>-->
+<!--        <item name="ms_text_color">@color/black</item>-->
+<!--        <item name="ms_background_color">@color/white_item</item>-->
+<!--        <item name="android:editTextBackground">@color/white_item</item>-->
+<!--        <item name="civ_fill_color">@color/white</item>-->
+
+        <item name="android:itemTextAppearance">@style/myCustomMenuTextAppearance</item>
+
+
+
+        <item name="background_layout">@color/white</item>
+        <item name="background_card_item">@color/white_item</item>
+        <item name="text_title">@color/black_text_title</item>
+        <item name="text_description">@color/black_text_description</item>
+
+<!--        <item name="materialDrawerStyle">@style/Widget.MaterialDrawerStyle</item>-->
+<!--        <item name="materialDrawerHeaderStyle">@style/Widget.MaterialDrawerHeaderStyle</item>-->
+
+    </style>
+
+
+    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+
+        <item name="bottomSheetStyle">@style/bottomSheetBackground</item>
+    </style>
+
+    <style name="bottomSheetBackground" parent="">
+        <item name="android:background">@drawable/popup_background_rounded</item>
+    </style>
+
+
+
+    <style name="myCustomMenuTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/black_text_title</item>
+        <item name="android:backgroundTint">@color/white_item</item>
+    </style>
+
+    <style name="Theme.Herafi.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Herafi.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Herafi.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

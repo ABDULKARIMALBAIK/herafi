@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="background_card_item" format="color"/>
+    <attr name="background_layout" format="color"/>
+    <attr name="text_title" format="color"/>
+    <attr name="text_description" format="color"/>
+</resources>

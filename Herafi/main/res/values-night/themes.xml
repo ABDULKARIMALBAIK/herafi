@@ -1,0 +1,54 @@
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Base application theme. -->
+    <style name="Theme.Herafi" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_color</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/primary_color</item>
+        <item name="colorSecondaryVariant">@color/primary_color</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+<!--        <item name="android:textColor">@color/white</item>-->
+<!--        <item name="ms_text_color">@color/white</item>-->
+<!--        <item name="cardBackgroundColor">@color/black_item</item>-->
+<!--        <item name="android:solidColor">@color/black_item</item>-->
+<!--        <item name="ms_background_color">@color/black_item</item>-->
+<!--        <item name="android:editTextBackground">@color/black_item</item>-->
+<!--        <item name="civ_fill_color">@color/black</item>-->
+
+        <item name="android:itemTextAppearance">@style/myCustomMenuTextAppearance</item>
+
+
+        <item name="background_layout">@color/black</item>
+        <item name="background_card_item">@color/black_item</item>
+        <item name="text_title">@color/white_text_title</item>
+        <item name="text_description">@color/white_text_description</item>
+
+
+<!--        <item name="materialDrawerStyle">@style/Widget.MaterialDrawerStyle</item>-->
+<!--        <item name="materialDrawerHeaderStyle">@style/Widget.MaterialDrawerHeaderStyle</item>-->
+
+    </style>
+
+
+
+    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--            <item name="android:windowSoftInputMode">adjustResize</item>-->
+
+        <item name="bottomSheetStyle">@style/bottomSheetBackground</item>
+    </style>
+
+    <style name="bottomSheetBackground" parent="">
+        <item name="android:background">@drawable/popup_background_rounded</item>
+    </style>
+
+
+    <style name="myCustomMenuTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/white_text_title</item>
+        <item name="android:backgroundTint">@color/black_item</item>
+    </style>
+</resources>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:background="?background_card_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?background_card_item"
+        android:orientation="vertical"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?background_card_item"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_dialog"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:background="?background_card_item"
+                android:src="@drawable/ic_dialog_build_30"/>
+
+            <RelativeLayout
+                android:background="?background_card_item"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/title_dialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accept_refuse_dialog_title"
+                    android:textSize="34sp"
+                    android:background="?background_card_item"
+                    android:textColor="?text_title"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="12dp" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/message_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/accept_refuse_dialog_message"
+            android:textSize="22sp"
+            android:background="?background_card_item"
+            android:textColor="?text_description"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"/>
+
+        <RelativeLayout
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_ok_dialog"
+                android:layout_centerInParent="true"
+                android:layout_width="120dp"
+                android:layout_height="120dp"/>
+
+        </RelativeLayout>
+
+        <RadioGroup
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioWithoutCostPrepare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accept_refuse_dialog_withHandPaid"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/radioWithCostPrepare"
+                android:layout_width="wrap_content"
+                android:text="@string/accept_refuse_dialog_withoutHandPaid"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?background_card_item"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnAccept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accept_refuse_dialog_accept"
+                    android:textSize="18sp"
+                    android:background="?background_card_item"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="?text_title" />
+
+                <TextView
+                    android:id="@+id/btnRefuse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accept_refuse_dialog_Refuse"
+                    android:textSize="18sp"
+                    android:background="?background_card_item"
+                    android:textColor="?text_title"
+                    android:layout_marginRight="18dp" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accept_refuse_dialog_cancel"
+                android:textSize="18sp"
+                android:layout_alignParentEnd="true"
+                android:background="?background_card_item"
+                android:textColor="?text_title"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

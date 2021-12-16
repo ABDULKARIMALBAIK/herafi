@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ProjectDetailsBinding"
+            type="com.abdalkarimalbiekdev.herafi.viewModel.ProjectDetailsViewModel" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshProjectDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?background_layout"
+            tools:context=".ProjectDetails">
+
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?text_title"
+                        android:background="?background_layout"
+                        android:text="@string/projectDetails_relative_user"
+                        android:textSize="36sp"
+                        android:layout_margin="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/imgUser"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_focused_person_30"
+                                android:layout_margin="12dp"
+                                app:civ_border_width="1dp"
+                                app:civ_border_color="@color/primary_color"
+                                app:civ_fill_color="?background_card_item"
+                                />
+                            <!--app:setProjectUserPhoto="@{ProjectDetailsBinding.getLiveData().getUserImage}"-->
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="-45dp">
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/imgUserPhone"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/ic_focused_phone_30"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_alignParentEnd="true"
+                                    app:civ_border_color="@color/primary_color"
+                                    app:civ_border_width="1dp"
+                                    app:civ_fill_color="?background_card_item"
+                                    android:onClick="@{(v) -> ProjectDetailsBinding.ProjectCallPhone(v)}"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/txtUserName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{ProjectDetailsBinding.getLiveData().getUserName}"
+                                    android:textSize="22sp" />
+
+                                <TextView
+                                    android:id="@+id/txtUserEmail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{ProjectDetailsBinding.getLiveData().getUserEmail}"
+                                    android:textSize="22sp"
+                                    android:textStyle="italic"
+                                    android:layout_marginTop="8dp" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/projectDetails_photos"
+                        android:textSize="36sp"
+                        android:textColor="?text_title"
+                        android:background="?background_layout"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="12dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerProjectPhotos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?background_layout"
+                        />
+                    <!--app:setProjectImagesAdapter='@{"Project details photos"}'-->
+
+                    <!--                <com.sanojpunchihewa.glowbutton.GlowButton-->
+                    <!--                    android:id="@+id/btnAddProjectPhoto"-->
+                    <!--                    android:text="@string/projectDetails_add_photos"-->
+                    <!--                    android:textColor="@android:color/white"-->
+                    <!--                    android:textStyle="normal"-->
+                    <!--                    android:textSize="18sp"-->
+                    <!--                    android:layout_marginTop="12dp"-->
+                    <!--                    android:layout_marginBottom="0dp"-->
+                    <!--                    android:layout_marginStart="12dp"-->
+                    <!--                    android:layout_marginEnd="12dp"-->
+                    <!--                    app:buttonColor="@color/primary_color"-->
+                    <!--                    app:cornerRadius="14dp"-->
+                    <!--                    app:glowColor="#862B62A8"-->
+                    <!--                    app:pressedGlowSize="10dp"-->
+                    <!--                    app:unpressedGlowSize="22dp"-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="100dp"-->
+                    <!--                    android:onClick="@{(v) -> ProjectDetailsBinding.onAddPhotoClicked(v)}"/>-->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/projectDetails_price"
+                            android:textSize="36sp"
+                            android:textColor="?text_title"
+                            android:background="?background_layout"
+                            android:layout_marginTop="28dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginBottom="12dp" />
+
+                        <TextView
+                            android:id="@+id/txtProjectPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{ProjectDetailsBinding.getLiveData().getProjectTotal_cost}"
+                            android:textSize="32sp"
+                            android:textColor="@android:color/holo_green_light"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="28dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginBottom="12dp" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/projectDetails_rating"
+                            android:textSize="36sp"
+                            android:layout_marginTop="28dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginBottom="12dp" />
+
+                        <RatingBar
+                            android:id="@+id/ratingProject"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginBottom="0dp"
+                            android:layout_marginRight="-36dp"
+                            android:max="5"
+                            android:rating="@{ProjectDetailsBinding.getLiveData().getProjectTotal_rate}"
+                            android:scaleX="0.6"
+                            android:scaleY="0.6" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/projectDetails_comment"
+                        android:textSize="36sp"
+                        android:textColor="?text_title"
+                        android:background="?background_layout"
+                        android:layout_marginTop="28dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="0dp" />
+
+                    <TextView
+                        android:id="@+id/txtProjectComment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{ProjectDetailsBinding.getLiveData().getProjectComment}"
+                        android:textSize="24sp"
+                        android:textColor="?text_description"
+                        android:background="?background_layout"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="38dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="20dp" />
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <ProgressBar
+            android:id="@+id/progressBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgBackground"
+                        android:scaleType="centerCrop"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone"
+                        android:src="@drawable/no_internet"
+                        android:layout_width="220dp"
+                        android:layout_height="220dp"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?text_title"
+                    android:visibility="gone"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:layout_margin="22dp"
+                    android:text="@string/you_need_internet"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</layout>

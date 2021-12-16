@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+<!--        <variable name="MainBinding" type=""/>-->
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?background_layout"
+        tools:context=".MainActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <io.supercharge.shimmerlayout.ShimmerLayout
+                        android:id="@+id/shimmerLayout"
+                        android:layout_width="350dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        app:shimmer_animation_duration="1200">
+
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="350dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="@string/main_title"
+                            android:textColor="@color/primary_color"
+                            android:textSize="68sp" />
+
+                    </io.supercharge.shimmerlayout.ShimmerLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <believe.cht.fadeintextview.TextView
+                        android:id="@+id/txtslogan"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/main_slogan"
+                        android:textSize="30sp"
+                        android:background="?background_layout"
+                        android:textColor="?text_title"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="4dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

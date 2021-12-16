@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="RequestItemBinding"
+            type="com.abdalkarimalbiekdev.herafi.model.RequestItemModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="?background_card_item"
+        app:cardElevation="12dp"
+        app:cardCornerRadius="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?background_card_item"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:background="?background_card_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="178dp"
+                    android:layout_height="180dp"
+                    android:layout_centerVertical="true"
+                    android:background="?background_card_item"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_focused_person_30"
+                    app:requestPersonImage="@{RequestItemBinding.getUserImage}"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
+
+                <TextView
+                    android:id="@+id/txtUserName"
+                    android:text="@{RequestItemBinding.getUserName}"
+                    android:textStyle="normal"
+                    android:background="?background_card_item"
+                    android:textColor="?text_title"
+                    android:textSize="22sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/txtUserEmail"
+                    android:text="@{RequestItemBinding.getUserEmail}"
+                    android:textStyle="italic"
+                    android:background="?background_card_item"
+                    android:textColor="?text_title"
+                    android:textSize="22sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtStatusWork"
+                        android:text="@{RequestItemBinding.getStatusName}"
+                        android:textStyle="normal"
+                        android:textSize="22sp"
+                        android:background="?background_card_item"
+                        android:textColor="?text_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgStatus"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginStart="8dp"
+                        android:background="?background_card_item"
+                        android:textColor="?text_title"
+                        android:layout_marginTop="3dp"
+                        app:civ_fill_color="@android:color/holo_green_light"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="@android:color/holo_green_light"
+                        app:requestImgStatus="@{RequestItemBinding.getStatusId}"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="horizontal">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgVideo"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="4dp"
+                        android:src="@drawable/ic_focus_videocam_24"
+                        android:scaleType="centerCrop"
+                        />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgUserPhone"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:scaleType="centerCrop"
+                        android:layout_margin="4dp"
+                        android:src="@drawable/ic_focused_phone_30"
+                        android:layout_alignParentEnd="true" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgUserMap"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:scaleType="centerCrop"
+                        android:layout_margin="4dp"
+                        android:src="@drawable/ic_focused_map_30"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="55dp"
+                        android:layout_marginBottom="2dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

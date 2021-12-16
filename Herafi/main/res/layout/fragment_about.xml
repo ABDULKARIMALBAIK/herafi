@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="AboutBinding"
+            type="com.abdalkarimalbiekdev.herafi.viewModel.AboutViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?background_layout"
+        tools:context=".Fragment.About.AboutFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp"
+            android:gravity="center"
+            android:text="@string/about_title"
+            android:textColor="@color/primary_color"
+            android:textSize="64sp"
+            android:background="?background_layout"
+            android:shadowColor="@color/primary_color"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="26"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/about_description"
+            android:textSize="23sp"
+            android:textColor="?text_title"
+            android:background="?background_layout"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:layout_margin="12dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_use_our_services"
+                android:textSize="16sp"
+                android:textColor="?text_description"
+                android:background="?background_layout"
+                android:linksClickable="true"
+                android:layout_margin="4dp" />
+
+            <TextView
+                android:id="@+id/txtTermsCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_Terms_Conditions"
+                android:textColor="@color/primary_color"
+                android:textSize="16sp"
+                android:background="?background_layout"
+                android:autoLink="all"
+                android:textColorLink="@color/primary_color"
+                android:clickable="true"
+                android:linksClickable="true"
+                android:layout_margin="4dp" />
+
+            <TextView
+                android:id="@+id/txtPrivacyPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_privacy_policy"
+                android:textColor="@color/primary_color"
+                android:background="?background_layout"
+                android:textSize="16sp"
+                android:autoLink="web"
+                android:textColorLink="@color/primary_color"
+                android:clickable="true"
+                android:linksClickable="true"
+                android:layout_margin="4dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

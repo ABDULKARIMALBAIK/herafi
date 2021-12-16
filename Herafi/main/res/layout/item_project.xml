@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="ProjectItemBinding"
+            type="com.abdalkarimalbiekdev.herafi.networkModel.ProjectItemModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="?background_card_item"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgProject"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?background_card_item"
+                    android:scaleType="centerCrop"
+                    app:setImageProject="@{ProjectItemBinding.getProjectPhoto}"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtPrice"
+                        android:text="@{ProjectItemBinding.getTotalCost}"
+                        android:textSize="25sp"
+                        android:textStyle="normal"
+                        android:layout_marginStart="22dp"
+                        android:layout_marginBottom="4dp"
+                        android:textColor="#fff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <RatingBar
+                        android:id="@+id/ratingProjectItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-25dp"
+                        android:max="5"
+                        android:rating="3"
+                        android:scaleX="0.6"
+                        android:scaleY="0.6"
+                        app:setRating="@{ProjectItemBinding.getTotalRate}"/>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgProjectPerson"
+            android:src="@drawable/ic_focused_person_30"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            app:civ_fill_color="?background_layout"
+            app:civ_border_color="@color/primary_color"
+            app:civ_border_width="0.5dp"
+            app:setImagePerson="@{ProjectItemBinding.getUserPhoto}"/>
+
+    </RelativeLayout>
+</layout>
