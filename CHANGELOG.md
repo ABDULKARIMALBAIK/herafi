@@ -1,3 +1,3 @@
 ## [1.0.0]
 
-* Hajozat app to manage of hotels and number of bookings.
+* Herafi app to help craftsman to manage the requests of his clients.
